@@ -1,0 +1,111 @@
+import java.util.Scanner;
+import java.util.Arrays;
+public class TwoDim {
+ public static void main(String args[]) {
+   
+    int row, col, i, j, h;
+    
+    
+    Scanner scan = new Scanner(System.in);
+    
+    System.out.println("Enter number of rows for the 2D Array: ");
+    row = scan.nextInt();
+    System.out.println("Enter number of columns for the 2D Array: ");
+    col = scan.nextInt(2 
+    
+
+    int arr[][] = new int[row][col];
+    System.out.println("Enter values for the desired 2D Array: ");
+    for (i = 0; i < row; i++) {
+      for (j = 0; j < col; j++) {
+        arr[i][j] = scan.nextInt();
+      }
+    }
+ 
+    if(row >= 0 && col >= 0){
+    System.out.print("Here is your Matrix \n");
+    System.out.print("------------------- \n");
+    for (i = 0; i < row; i++) {
+      for (j = 0; j < col; j++) {
+        System.out.print(arr[i][j] + "  ");
+      }
+      System.out.println();
+    }
+  }
+    else{
+        System.out.println("Please use positive numbers only.");
+    }
+    
+    System.out.println("Sort rows or columns:\n");
+    System.out.println("1 to Sort rows");
+    System.out.println("2 to Sort columns");
+    System.out.println("Decide! <OR ctrl d to quit");
+    h = scan.nextInt();
+    
+    
+    if(h == 1){
+        sortRow(arr);
+    }
+    else if (h==2){
+        sortCol(arr);
+    }
+    else {
+        
+    
+        System.out.print("Incorrect Input, matrix unsorted.");
+    }
+ }    
+ 
+ 
+    
+ static int sortRow(int arr[][])
+    {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+ 
+                for (int k = 0; k < arr[i].length - j - 1; k++) {
+                    if (arr[i][k] > arr[i][k + 1]) {
+ 
+                        int t = arr[i][k];
+                        arr[i][k] = arr[i][k + 1];
+                        arr[i][k + 1] = t;
+                    }
+                }
+            }
+        }
+         for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++)
+                System.out.print(arr[i][j] + " ");
+            System.out.println();
+        }
+ 
+        return 0;
+    }
+ static int sortCol(int arr[][])
+ {
+             for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                                
+                
+                for (int k = 0; k < arr[j].length - i - 1; k++) {
+                    if (arr[j][k] > arr[j][k + 1]) {
+ 
+                        int t = arr[j][k];
+                        arr[j][k] = arr[j][k + 1];
+                        arr[j][k + 1] = t;
+                    }
+                }
+            }
+        }
+         for (int j = 0; j < arr.length; j++) {
+            for (int i = 0; i < arr[j].length; i++)
+                System.out.print(arr[i][j] + " ");
+            System.out.println();
+        }
+ 
+        return 0;
+                
+            }
+ }
+    
+ 
