@@ -1,0 +1,61 @@
+import java.util.Scanner;
+public class Triples {
+ 
+
+    static void Triple(int number)
+    {
+        int count = 0;
+        int count2 = 0;
+        int count3 = 0;
+        if (number > 0){
+            for(int x=1; x<=number-2;x++){
+                for(int y=x+1; y<= number-1;y++){
+                    for(int z=y+1; z<=number;z++){
+                        if(x*x + y*y == z*z){
+                            System.out.println(x + " " + y + " " + z); 
+                            count++;
+//I tried multiple different ways to combine the arguments/conditions into one if statemooknt / multiple, but I was either missing numbers or they weren't even shifting so the only way for me to get the shifting positions to work is to have them duplicate, I really like java regardless, and since i'm such a newbie at it, I am really happy with how much more I understand though just from a semesters worth of work so far. 
+                            if(z == y+1 && y != x+1){
+                           System.out.println( "\t" +  x + " " + y + " " + z); 
+                            count2++;
+                            }
+                            if(y == x+1 && z != y+1){
+                                System.out.println( "\t\t" +  x + " " + y + " " + z); 
+                            count3++;
+                            }
+                           if (z > number){
+                                break;
+                                
+
+                }    
+            }
+
+           }
+
+        }
+        
+    }
+        }
+       
+        System.out.println("\nNumber of Triples less than or equal to " + number + "equals: " + count);
+        System.out.println("\nNumber of Triples less than or equal to" + number + "with either y = x+1 or z = y+1 is: " + (count2+count3));
+        System.out.println("\nNumber of Triples specifically with y = x+1: " + count3);
+        System.out.println("\nNumber of Triples specifically with z = y+1: " + count2);
+        System.out.println("\nHere is the visual:");
+        System.out.println("\nTotal Triples    | "+ ("*".repeat(count)));
+        System.out.println("y=x+1 or z=y+1   | "+ ("*".repeat(count3+count2)));
+        System.out.println("z=y+1            | "+ ("*".repeat(count2)));
+        System.out.println("y=x+1            | "+ ("*".repeat(count3)));
+    }
+    public static void main(String args[])
+    {       
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter your desired number: ");
+        int number = sc.nextInt();
+        System.out.println("Number of Triples less than or equal to " + number);
+        Triple(number);
+        
+    }
+    
+}
